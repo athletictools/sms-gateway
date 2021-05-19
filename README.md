@@ -1,5 +1,8 @@
 # sms-gateway
 
+Send sms via different service through single API
+
+
 Setup environment (from project root):
 ``` shell
 pyenv install 3.9.5

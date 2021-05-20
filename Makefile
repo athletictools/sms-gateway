@@ -4,5 +4,5 @@ lint:
 
 test: lint
 	py.test --cov=. --cov-report=xml --cov-report=html $(arg)
-	diff-cover --compare-branch=origin/dev coverage.xml --html-report diff-cover.html
+	diff-cover --compare-branch=origin/master coverage.xml --html-report diff-cover.html
 

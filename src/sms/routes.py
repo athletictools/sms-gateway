@@ -2,4 +2,4 @@ from aiohttp.web import Application
 
 
 def setup_routes(app: Application):
-    app.router.add_post()
+    app.router.add_post('/sms')

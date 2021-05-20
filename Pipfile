@@ -8,7 +8,11 @@ aiohttp = "==3.7.3"
 click = "==8.0.0"
 
 [dev-packages]
+sms = {path = ".",editable = true}
 pytest = "==6.2.4"
+flake8 = "==3.9.2"
+diff-cover = "==5.1.1"
+flake8-import-order = "0.18.1"
 
 [requires]
 python_version = "3.9"

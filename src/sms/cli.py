@@ -1,6 +1,8 @@
 import click
 from aiohttp import web
 
+from sms.routes import setup_routes
+
 
 @click.group()
 def cli() -> None:
@@ -12,4 +14,5 @@ def cli() -> None:
 @click.option('--port', type=int, default=3000)
 def serve(host: str, port: int) -> None:
     app = web.Application()
+    setup_routes(app)
     web.run_app(app, host=host, port=port)

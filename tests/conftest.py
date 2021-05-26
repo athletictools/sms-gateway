@@ -1,10 +1,9 @@
 import pytest
-from aiohttp.test_utils import TestClient
-from sms.application import app_factory
+from fastapi.testclient import TestClient
+
+from sms.handlers import app
 
 
 @pytest.fixture
-async def http_client(aiohttp_client, loop) -> TestClient:
-    app = await app_factory()
-    client = await aiohttp_client(app)
-    return client
+def http_client() -> TestClient:
+    return TestClient(app)

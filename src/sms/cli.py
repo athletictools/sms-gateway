@@ -1,8 +1,6 @@
 import click
-from aiohttp import web
 
-from sms.application import app_factory
-
+from sms.handlers import app
 
 @click.group()
 def cli() -> None:
@@ -13,4 +11,4 @@ def cli() -> None:
 @click.option('--host', type=str, default='127.0.0.1')
 @click.option('--port', type=int, default=3000)
 def serve(host: str, port: int) -> None:
-    web.run_app(app_factory, host=host, port=port)
+    app

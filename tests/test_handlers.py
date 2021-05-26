@@ -1,14 +1,21 @@
-from aiohttp.test_utils import TestClient
+from fastapi import status
+from fastapi.testclient import TestClient
 
 
-async def test_send_sms(http_client: TestClient):
+def test_send_sms(http_client: TestClient):
     # arrange
     request = {
-        'numbers': ['+79091112233', '+79092223344', ],
-        'text': 'hello world',
+        'messages': [
+            {
+                'phone_no': '+79091112233',
+                'text': 'hello world',
+            }
+        ],
     }
 
     # act
-    response = await http_client.post('/send', json=request)
+    response = http_client.post('/send', json=request)
 
-    assert 200 == response.status
+    # assert
+    assert status.HTTP_200_OK == response.status_code
+    assert {} == response.json()

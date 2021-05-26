@@ -1,0 +1,2 @@
+class SmsBackendError(Exception):
+    pass
